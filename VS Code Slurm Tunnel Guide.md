@@ -10,7 +10,7 @@ The script is divided into three main sections: **Resource Allocation**, **Envir
 
 ### 1. Resource Request (`#SBATCH`)
 These lines tell the cluster's scheduler (Slurm) what hardware to reserve for you:
-* **Partition & Container**: Uses the `sooner_gpu_test` partition and an `el7` environment. more info about partitions **[HERE](/https://www.ou.edu/oscer/using-the-cluster/partitions)**
+* **Partition & Container**: Uses the `sooner_gpu_test` partition and an `el7` environment. more info about partitions **[HERE](https://www.ou.edu/oscer/using-the-cluster/partitions)**
 * **GPU**: Requests **1 GPU** (`--gres=gpu:1`).
 * **Nodes & Tasks**: If your code is not explicitly parallelized (e.g., using MPI or Multiprocessing), always set (`--nodes=1`) and (`--ntasks=1`).
 * **Memory & Time**: Allocates **4GB of RAM** for a duration of **2 hours**.
@@ -21,7 +21,7 @@ Before starting VS Code, the script prepares your software stack:
 
 *Note: this setting has been tested on **A100 GPU***
 
-* **Modules**: Loads specific versions of **Python 3.11.5**, **cuDNN**, and **CUDA 11.8** to ensure your GPU code runs correctly. more info. **[HERE](/https://www.ou.edu/oscer/applications/software-list#Python)**
+* **Modules**: Loads specific versions of **Python 3.11.5**, **cuDNN**, and **CUDA 11.8** to ensure your GPU code runs correctly. more info. **[HERE](https://www.ou.edu/oscer/applications/software-list#Python)**
 * **Virtual Environment**: Activates your private Python environment located at `/home/reza/myenv1/`.
 * **Cleanup**: Automatically deletes old `.vscode-server` files. This is a "housekeeping" step to prevent connection errors and clear out old cache files from previous sessions.
 
@@ -29,7 +29,7 @@ Before starting VS Code, the script prepares your software stack:
 This is the final step that connects the cluster to your local machine:
 * It creates a unique **Tunnel Name** based on your username and the specific node you are assigned.
 * It runs the `$HOME/code tunnel` command to start the secure bridge.
-* Make sure you follow the steps as described **[HERE](/https://www.ou.edu/oscer/applications/vs-code)**
+* Make sure you follow the steps as described **[HERE](https://www.ou.edu/oscer/applications/vs-code)**
 ---
 
 ## How to Use This Script
@@ -39,7 +39,7 @@ This is the final step that connects the cluster to your local machine:
    ```bash
    sbatch launch_vscode.sbatch
    ```
-   - Details **[HERE](\https://www.ou.edu/oscer/using-the-cluster/submitting-jobs)**
+   - Details **[HERE](https://www.ou.edu/oscer/using-the-cluster/submitting-jobs)**
 
 3. **Get the Link**:
    Wait about 30 seconds for the job to start, then check your output log:
