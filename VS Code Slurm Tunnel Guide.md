@@ -2,7 +2,7 @@
 
 This repository contains a Slurm batch script designed to launch a **VS Code Remote Tunnel** on a high-performance computing (HPC) cluster. This allows you to use the VS Code interface on your local laptop while leveraging the cluster's GPUs and memory.
 
-For general information including creating an account, connecting to OSCER, etc. please visit **[HERE](/https://www.ou.edu/oscer/getting-started)**
+For general information including creating an account, connecting to OSCER, etc. please visit **[HERE](https://www.ou.edu/oscer/getting-started)**
 
 ## The Script Overview
 
