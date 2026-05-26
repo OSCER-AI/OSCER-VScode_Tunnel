@@ -11,7 +11,7 @@ Determine if your Python script is designed to use multiple cores or GPUs.
 ### Step 2: Run an Interactive Test
 Do not submit a long batch script immediately. Start an interactive session to "see" the code run.
 1.  Request a temporary interactive node:  
-    `srun --nodes=1 --ntasks=1 --cpus-per-task=4 --mem=16G --time=01:00:00 --pty bash`
+    `srun --partition=sooner_gpu_test --container=el7 --nodes=1 --ntasks=1 --cpus-per-task=4 --mem=16G --time=01:00:00 --pty bash`
 2.  Run your script (or a smaller representative version of it).
 3.  Open a second terminal, log into the same node, and run `htop` or `nvidia-smi` to watch the RAM and CPU/GPU usage peaks in real-time.
 
