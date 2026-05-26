@@ -21,6 +21,17 @@ Integrate a profiler into your Python script to get exact numbers.
     `python -m memory_profiler your_script.py`
 *   **Execution Time:** Use `cProfile` to see which functions take the longest and if adding more CPUs will actually help.
 
+*   OSCER Team has created a script for monitoring CPU, GPU, and memory usage. To use it on the supercomputer, first load the following module:
+   `OSCER/0.2.0`
+    Then, in your batch script, add the following line before running your code:
+    
+   `memprofile -o monitor.log`
+
+   This will produce a file named monitor.log that logs resource usage every 5 seconds. The output format is still under development, but it still provides useful insight into resource consumption. You can view additional usage information via:
+
+  `memprofile -h`
+
+
 ### Step 4: Submit a "Pilot" Batch Job
 Submit your script with a generous "buffer" (e.g., 20% more RAM and time than you think you need).
 ```bash
