@@ -1,6 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=disc
-#SBATCH --container=el7
+#SBATCH --partition=sooner_disc
 #SBATCH --gres=gpu:1
 #SBATCH --output=vscode_%J_stdout.txt
 #SBATCH --error=vscode_%J_stderr.txt
