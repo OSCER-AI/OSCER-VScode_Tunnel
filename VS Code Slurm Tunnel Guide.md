@@ -22,6 +22,11 @@ Before starting VS Code, the script prepares your software stack:
 *Note: this setting has been tested on **A100 GPU*** [this needs your partition to be `disc` and requires **[registration](https://www.ou.edu/disc/resources)**
 
 * **Modules**: Loads specific versions of **Python 3.11.5**, **cuDNN**, and **CUDA 11.8** to ensure your GPU code runs correctly. more info. **[HERE](https://www.ou.edu/oscer/applications/software-list#Python)**
+  ```bash
+  module load Python/3.11.5-GCCcore-13.2.0
+  module load cuDNN/8.6.0.163-CUDA-11.8.0
+  module load CUDA/11.8.0
+  ``` 
 * **Virtual Environment**: Activates your private Python environment located at `/home/reza/myenv1/`.
 * **Cleanup**: Automatically deletes old `.vscode-server` files. This is a "housekeeping" step to prevent connection errors and clear out old cache files from previous sessions.
 
