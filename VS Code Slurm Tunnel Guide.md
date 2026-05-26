@@ -19,7 +19,7 @@ These lines tell the cluster's scheduler (Slurm) what hardware to reserve for yo
 ### 2. Environment Setup
 Before starting VS Code, the script prepares your software stack:
 
-*Note: this setting has been tested on **A100 GPU***
+*Note: this setting has been tested on **A100 GPU*** [this needs your partition to be `dist` and requires **[registration](https://www.ou.edu/disc/resources)**
 
 * **Modules**: Loads specific versions of **Python 3.11.5**, **cuDNN**, and **CUDA 11.8** to ensure your GPU code runs correctly. more info. **[HERE](https://www.ou.edu/oscer/applications/software-list#Python)**
 * **Virtual Environment**: Activates your private Python environment located at `/home/reza/myenv1/`.
