@@ -56,6 +56,8 @@ Once the pilot job finishes, use Slurm accounting tools to see what actually hap
 2.  **Check Peak Usage:** Run:  
     `sacct -j <JOB_ID> --format=MaxRSS,MaxDiskRead,MaxDiskWrite,Elapsed`  
     *   `MaxRSS` tells you the maximum RAM your job reached before finishing.
+  
+NOTE: This will be available upon upgrade the SLURM controller (soon)
 
 ### Step 6: Refine and Scale
 Adjust your `.sh` file based on the `seff` and `sacct` output. 
