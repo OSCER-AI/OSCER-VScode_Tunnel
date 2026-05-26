@@ -36,6 +36,8 @@ Integrate a profiler into your Python script to get exact numbers.
 Submit your script with a generous "buffer" (e.g., 20% more RAM and time than you think you need).
 ```bash
 #!/bin/bash
+#SBATCH --partition=sooner_gpu_test
+#SBATCH --container=el7
 #SBATCH --job-name=pilot_test
 #SBATCH --output=res_%j.txt
 #SBATCH --nodes=1
