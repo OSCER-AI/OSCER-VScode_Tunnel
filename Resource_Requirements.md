@@ -37,7 +37,7 @@ Submit your script with a generous "buffer" (e.g., 20% more RAM and time than yo
 ```bash
 #!/bin/bash
 #SBATCH --partition=sooner_gpu_test
-#SBATCH --container=el7
+#SBATCH --container=el9hw
 #SBATCH --job-name=pilot_test
 #SBATCH --output=res_%j.txt
 #SBATCH --nodes=1
