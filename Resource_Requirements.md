@@ -16,7 +16,7 @@ Before submitting a long-running batch job, start an interactive session to obse
     `srun --partition=normal --container=el9hw --nodes=1 --ntasks=1 --cpus-per-task=4 --mem=16G --time=01:00:00 --pty  $SHELL`
 2.  Run your script (or a smaller representative version of it).
 3.  Open a second terminal and launch another shell on the same allocated compute node without requesting additional resources:<br>
-    `srun --jobid=<jobID> --container=el9hw --container=el9hw --overlap --pty $SHELL` <br>
+    `srun --jobid=<jobID> --container=el9hw --overlap --pty $SHELL` <br>
     Then run `htop` or `nvidia-smi` to mointor the RAM and CPU/GPU usage peaks in real-time.
 <br><br>
 
