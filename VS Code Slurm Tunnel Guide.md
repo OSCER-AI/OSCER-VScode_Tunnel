@@ -10,7 +10,7 @@ The script is divided into three main sections: **Resource Allocation**, **Envir
 
 ### 1. Resource Request (`#SBATCH`)
 These lines tell the cluster's scheduler (Slurm) what hardware to reserve for you:
-* **Partition & Container**: Uses the `sooner_gpu_test` partition and an `el7` environment. more info about partitions **[HERE](https://www.ou.edu/oscer/using-the-cluster/partitions)**
+* **Partition & Container**: Uses the `gpu` partition and an `el9hw` environment. more info about partitions **[HERE](https://www.ou.edu/oscer/using-the-cluster/partitions)**
 * **GPU**: Requests **1 GPU** (`--gres=gpu:1`).
 * **Nodes & Tasks**: If your code is not explicitly parallelized (e.g., using MPI or Multiprocessing), always set (`--nodes=1`) and (`--ntasks=1`).
 * **Memory & Time**: Allocates **4GB of RAM** for a duration of **2 hours**.
@@ -19,15 +19,14 @@ These lines tell the cluster's scheduler (Slurm) what hardware to reserve for yo
 ### 2. Environment Setup
 Before starting VS Code, the script prepares your software stack:
 
-*Note: this setting has been tested on **A100 GPU*** [this needs your partition to be `sooner_disc` and requires **[registration](https://www.ou.edu/disc/resources)**
+*Note: this setting has been tested on **A100 GPU*** [this requires your partition to be set to `gpu_A100`] 
 
-* **Modules**: Loads specific versions of **Python 3.11.5**, **cuDNN**, and **CUDA 11.8** to ensure your GPU code runs correctly. more info. **[HERE](https://www.ou.edu/oscer/applications/software-list#Python)**
+* **Modules**: Loads specific versions of **Python 3.13.5**, **cuDNN 9.5.1.17** with **CUDA 12.6** to ensure your GPU code runs correctly. more info. **[HERE](https://www.ou.edu/oscer/applications/software-list#Python)**
   ```bash
-  module load Python/3.11.5-GCCcore-13.2.0
-  module load cuDNN/8.6.0.163-CUDA-11.8.0
-  module load CUDA/11.8.0
+  module load Python/3.13.5-GCCcore-14.3.0 
+  module load cuDNN/9.5.1.17-CUDA-12.6.0 
   ``` 
-* **Virtual Environment**: Activates your private Python environment located at `/home/reza/myenv1/`.
+* **Virtual Environment**: Activates your private Python environment located at `/$HOME/myenv1/`.
 * **Cleanup**: Automatically deletes old `.vscode-server` files. This is a "housekeeping" step to prevent connection errors and clear out old cache files from previous sessions.
 
 ### 3. The Tunnel Launch
