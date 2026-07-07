@@ -1,28 +1,33 @@
 #!/bin/bash
-#SBATCH --partition=sooner_disc
+
+#SBATCH --partition=gpu
+#SBATCH --container=el9hw
 #SBATCH --gres=gpu:1
-#SBATCH --output=vscode_%J_stdout.txt
-#SBATCH --error=vscode_%J_stderr.txt
 #SBATCH --ntasks=1
 #SBATCH --mem=16G
 #SBATCH --time=4:00:00
+#SBATCH --output=vscode_%J_stdout.txt
+#SBATCH --error=vscode_%J_stderr.txt
 
-module load Python/3.11.5-GCCcore-13.2.0
-module load cuDNN/8.6.0.163-CUDA-11.8.0
-module load CUDA/11.8.0
+# Load modules and activate environment
+module purge
+module load Python/3.13.5-GCCcore-14.3.0
+module load cuDNN/9.5.1.17-CUDA-12.6.0
+source /$HOME/myenv1/bin/activate
 
-source /reza/myenv1/bin/activate
-
+# Remove VS Code server files to avoid startup conflicts
 rm -rf ~/.vscode
 rm -rf ~/.vscode-server
 
-export PATH=/reza/myenv1/bin:$PATH
+# Use scratch storage for temp files to prevent /tmp space issues
+export TMPDIR=/scratch/$USER/tmp
+mkdir -p $TMPDIR
 
-
-rm -rf ~/.local/share/jupyter/runtime/*
-rm -rf ~/.vscode-server/bin/*
-
+# Create a unique tunnel name
 export TUNNELNAME=$USER-$(hostname -s)
+echo Tunnel Name: $TUNNELNAME
+
+# Start VS Code tunnel and accept the service license terms
 $HOME/code tunnel --accept-server-license-terms --name=$TUNNELNAME
 
 
